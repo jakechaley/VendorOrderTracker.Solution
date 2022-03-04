@@ -17,7 +17,8 @@ namespace VendorOrderTracker.Tests
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
-      Order newOrder = new Order("title", "description", 30);
+      DateTime date = new DateTime(2022, 03, 04);
+      Order newOrder = new Order("title", "description", 30, date);
       Assert.AreEqual(typeof(Order), newOrder.GetType());
     }
 
@@ -27,7 +28,8 @@ namespace VendorOrderTracker.Tests
       string title = "title";
       string description = "description";
       int price = 30;
-      Order newOrder = new Order(title, description, price);
+      DateTime date = new DateTime(2022, 03, 04);
+      Order newOrder = new Order(title, description, price, date);
       string result = newOrder.Title;
       Assert.AreEqual(title, result);
     }
@@ -38,7 +40,8 @@ namespace VendorOrderTracker.Tests
       string title = "title";
       string description = "description";
       int price = 30;
-      Order newOrder = new Order(title, description, price);
+      DateTime date = new DateTime(2022, 03, 04);
+      Order newOrder = new Order(title, description, price, date);
       String updatedTitle = "Sally's Bake Shop Order";
       newOrder.Title = updatedTitle;
       string result = newOrder.Title;
@@ -51,7 +54,8 @@ namespace VendorOrderTracker.Tests
       string title = "title";
       string description = "description";
       int price = 30;
-      Order newOrder = new Order(title, description, price);
+      DateTime date = new DateTime(2022, 03, 04);
+      Order newOrder = new Order(title, description, price, date);
       string result = newOrder.Description;
       Assert.AreEqual(description, result);
     }
@@ -62,7 +66,8 @@ namespace VendorOrderTracker.Tests
       string title = "title";
       string description = "description";
       int price = 30;
-      Order newOrder = new Order(title, description, price);
+      DateTime date = new DateTime(2022, 03, 04);
+      Order newOrder = new Order(title, description, price, date);
       String updatedDescription = "newDescription";
       newOrder.Description = updatedDescription;
       string result = newOrder.Description;
@@ -75,17 +80,20 @@ namespace VendorOrderTracker.Tests
       string title = "title";
       string description = "description";
       int price = 30;
-      Order newOrder = new Order(title, description, price);
+      DateTime date = new DateTime(2022, 03, 04);
+      Order newOrder = new Order(title, description, price, date);
       string result = newOrder.Description;
       Assert.AreEqual(description, result);
     }
 
+    [TestMethod]
     public void SetPrice_ReturnPrice_Int()
     {
       string title = "title";
       string description = "description";
       int price = 30;
-      Order newOrder = new Order(title, description, price);
+      DateTime date = new DateTime(2022, 03, 04);
+      Order newOrder = new Order(title, description, price, date);
       int updatedPrice = 40;
       newOrder.Price = updatedPrice;
       int result = newOrder.Price;
@@ -101,8 +109,10 @@ namespace VendorOrderTracker.Tests
       DateTime date = new DateTime(2022, 03, 04);
       Order newOrder = new Order(title, description, price, date);
       DateTime result = newOrder.Date;
-      Assert.AreEqual(description, result);
+      Assert.AreEqual(date, result);
     }
+
+    
   }
 }
 
