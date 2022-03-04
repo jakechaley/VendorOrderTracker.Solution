@@ -112,7 +112,19 @@ namespace VendorOrderTracker.Tests
       Assert.AreEqual(date, result);
     }
 
-    
+    [TestMethod]
+    public void SetDate_ReturnDate_DateTime()
+    {
+      string title = "title";
+      string description = "description";
+      int price = 30;
+      DateTime date = new DateTime(2022, 03, 04);
+      Order newOrder = new Order(title, description, price, date);
+      DateTime updatedDate = new DateTime (2022, 03, 05);
+      newOrder.Date = updatedDate;
+      DateTime result = newOrder.Date;
+      Assert.AreEqual(updatedDate, result);
+    }
   }
 }
 
