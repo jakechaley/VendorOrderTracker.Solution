@@ -17,10 +17,5 @@ namespace VendorOrderTracker.Models
       Date = date;
 
     }
-    
-    public static void ClearAll()
-    {
-      
-    }
   }
 }
