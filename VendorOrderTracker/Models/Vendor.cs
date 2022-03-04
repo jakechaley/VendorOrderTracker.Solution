@@ -6,7 +6,7 @@ namespace VendorOrderTracker.Models
   {
     private static List<Vendor> _instances = new List<Vendor> {};
     public string Name { get; set; }
-    public string Description;
+    public string Description {}
     public List<Order> Orders;
 
     public Vendor(string vendorName)
