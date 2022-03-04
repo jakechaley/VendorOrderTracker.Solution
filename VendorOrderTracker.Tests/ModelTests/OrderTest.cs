@@ -74,10 +74,22 @@ namespace VendorOrderTracker.Tests
     {
       string title = "title";
       string description = "description";
-      int price = 25;
+      int price = 30;
       Order newOrder = new Order(title, description, price);
       string result = newOrder.Description;
       Assert.AreEqual(description, result);
+    }
+
+    public void SetPrice_ReturnPrice_Int()
+    {
+      string title = "title";
+      string description = "description";
+      int price = 30;
+      Order newOrder = new Order(title, description, price);
+      int updatedPrice = 40;
+      newOrder.Price = updatedPrice;
+      int result = newOrder.Price;
+      Assert.AreEqual(updatedPrice, result);
     }
   }
 }
