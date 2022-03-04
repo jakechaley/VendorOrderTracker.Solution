@@ -52,6 +52,18 @@ namespace VendorOrderTracker.Tests
       string result = newOrder.Description;
       Assert.AreEqual(description, result);
     }
+
+      [TestMethod]
+    public void SetDescription_ReturnDescription_String()
+    {
+      string title = "title";
+      string description = "description";
+      Order newOrder = new Order(title, description);
+      String updatedDescription = "newDescription";
+      newOrder.Description = updatedDescription;
+      string result = newOrder.Description;
+      Assert.AreEqual(updatedDescription, result);
+    }
   }
 }
 
