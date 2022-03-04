@@ -17,7 +17,7 @@ namespace VendorOrderTracker.Tests
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
-      Order newOrder = new Order("title");
+      Order newOrder = new Order("title", "description");
       Assert.AreEqual(typeof(Order), newOrder.GetType());
     }
 
@@ -25,7 +25,8 @@ namespace VendorOrderTracker.Tests
     public void GetTitle_ReturnTitle_String()
     {
       string title = "title";
-      Order newOrder = new Order(title);
+      string description = "description";
+      Order newOrder = new Order(title, description);
       string result = newOrder.Title;
       Assert.AreEqual(title, result);
     }
@@ -34,7 +35,8 @@ namespace VendorOrderTracker.Tests
     public void SetTitle_ReturnTitle_String()
     {
       string title = "title";
-      Order newOrder = new Order(title);
+      string description = "description";
+      Order newOrder = new Order(title, description);
       String updatedTitle = "Sally's Bake Shop Order";
       newOrder.Title = updatedTitle;
       string result = newOrder.Title;
@@ -44,8 +46,9 @@ namespace VendorOrderTracker.Tests
     [TestMethod]
     public void GetDescription_ReturnDescription_String()
     {
+      string title = "title";
       string description = "description";
-      Order newOrder = new Order(description);
+      Order newOrder = new Order(title, description);
       string result = newOrder.Description;
       Assert.AreEqual(description, result);
     }
