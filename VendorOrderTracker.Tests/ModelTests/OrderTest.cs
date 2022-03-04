@@ -6,20 +6,25 @@ using VendorOrderTracker.Models;
 namespace VendorOrderTracker.Tests
 {
   [TestClass]
-  public class OrderTests
+  public class OrderTests : IDisposable
   {
+    public void Dispose()
+    {
+      Order.ClearAll();
+    }
+
 
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
-      Order newOrder = new Order("test");
+      Order newOrder = new Order("title");
       Assert.AreEqual(typeof(Order), newOrder.GetType());
     }
 
     [TestMethod]
     public void GetTitle_ReturnTitle_String()
     {
-      string title = "Baker Order";
+      string title = "title";
       Order newOrder = new Order(title);
       string result = newOrder.Title;
       Assert.AreEqual(title, result);
@@ -28,7 +33,7 @@ namespace VendorOrderTracker.Tests
     [TestMethod]
     public void SetTitle_ReturnTitle_String()
     {
-      string title = "Baker Order";
+      string title = "title";
       Order newOrder = new Order(title);
       String updatedTitle = "Sally's Bake Shop Order";
       newOrder.Title = updatedTitle;
@@ -39,10 +44,11 @@ namespace VendorOrderTracker.Tests
     [TestMethod]
     public void GetDescription_ReturnDescription_String()
     {
-      string description = "3 Loaves of Bread, 4 pastries";
+      string description = "description";
       Order newOrder = new Order(description);
       string result = newOrder.Description;
       Assert.AreEqual(description, result);
     }
   }
 }
+
