@@ -151,6 +151,18 @@ namespace VendorOrderTracker.Tests
       List<Order> result = Order.GetAll();
       CollectionAssert.AreEqual(newList, result);
     }
+
+    [TestMethod]
+    public void GetId_OrdersInstantiateWithIdAndGetterReturns_Int()
+    {
+      string title = "Title1";
+      string description = "Description1";
+      int price = 25;
+      DateTime date = new DateTime (2022, 03, 04);
+      Order newOrder = new Order(title, description, price, date);
+      int result = newOrder.Id;
+      Assert.AreEqual(1, result);
+    }
   }
 }
 
