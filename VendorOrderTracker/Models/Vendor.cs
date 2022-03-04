@@ -27,7 +27,7 @@ namespace VendorOrderTracker.Models
 
     public static List<Vendor> GetAll()
     {
-      return Vendor.Name;
+      return _instances;
     }
   }
 }
