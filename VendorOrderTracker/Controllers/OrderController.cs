@@ -27,7 +27,7 @@ namespace VendorOrderTracker.Controllers
     [HttpPost("/orders/delete")]
     public ActionResult DeleteAll()
     {
-      Item.ClearAll();
+      Order.ClearAll();
       return View();
     }
 
