@@ -11,8 +11,9 @@ namespace VendorOrderTracker.Controllers
     [HttpGet("/vendors")]
     public ActionResult Index()
     {
-      List<Vendor> allVendors = Vendor.GetAll();
-      return View(allVendors);
+      List<Vendor> vendors = Vendor.GetAll();
+      Console.WriteLine("vendors =" + vendors);
+      return View(vendors);
     }
 
     [HttpGet("/vendors/new")]
@@ -25,12 +26,13 @@ namespace VendorOrderTracker.Controllers
     public ActionResult Create(string vendorName, string vendorDescription)
     {
       Vendor newVendor = new Vendor(vendorName, vendorDescription);
-      return RedirectToAction("Index.cshtml");
+      return RedirectToAction("Index", "Home");
     }
 
     [HttpGet("/vendors/{id}")]
     public ActionResult Show(int id)
     {
+      Console.WriteLine("id is: " + id);
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor selectedVendor = Vendor.Find(id);
       List<Order> vendorOrders = selectedVendor.Orders;
@@ -38,6 +40,7 @@ namespace VendorOrderTracker.Controllers
       model.Add("orders", vendorOrders);
       return View(model);
     }
+
 
     // This one creates new Items within a given Category, not new Categories:
     [HttpPost("/vendors/{vendorId}/orders")]

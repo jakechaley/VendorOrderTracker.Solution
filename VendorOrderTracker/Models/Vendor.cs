@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 
 namespace VendorOrderTracker.Models
 {
@@ -17,6 +18,7 @@ namespace VendorOrderTracker.Models
       Description = vendorDescription;
       _instances.Add(this);
       Id = _instances.Count;
+      Console.WriteLine("Id =" + Id);
       Orders = new List<Order>{};
     }
 
@@ -32,6 +34,7 @@ namespace VendorOrderTracker.Models
 
     public static Vendor Find(int searchId)
     {
+      Console.WriteLine("searchId =" + searchId);
       return _instances[searchId - 1];
     }
 
